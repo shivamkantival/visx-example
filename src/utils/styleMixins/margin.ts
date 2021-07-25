@@ -4,3 +4,10 @@ export function topBottomMargin(value: number) {
     marginBottom: value,
   };
 }
+
+export function rightLeftMargin(value: number) {
+  return {
+    marginLeft: value,
+    marginRight: value,
+  };
+}

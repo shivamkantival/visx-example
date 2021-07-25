@@ -8,10 +8,11 @@ import {
   flatten,
   uniqBy,
   maxBy,
-} from 'lodash';
-import { Post } from 'typeDefs/posts';
-import { Topic } from 'typeDefs/topics';
-import { getTopicLabel } from './topics';
+} from "lodash";
+import { Post } from "typeDefs/posts";
+import { Topic } from "typeDefs/topics";
+import { getTopicLabel } from "./topics";
+import { User } from "typeDefs/users";
 
 export function getNumericCreatedAtEpoch(post: Post): number {
   return parseInt(post.createdAt, 10);
@@ -19,11 +20,11 @@ export function getNumericCreatedAtEpoch(post: Post): number {
 
 export function getRelevantTopics(post: Post): Array<Topic> {
   return flow(
-    post => compact(castArray(post.likelyTopics)),
+    (post) => compact(castArray(post.likelyTopics)),
     (allLikelyTopics: Array<Topic>) => {
       const filteredLikelyTopics = filter(
         allLikelyTopics,
-        topic => topic.likelihood > 0.15
+        (topic) => topic.likelihood > 0.15
       );
 
       return filteredLikelyTopics.length
@@ -35,9 +36,9 @@ export function getRelevantTopics(post: Post): Array<Topic> {
 
 export function getUniqueTopicsFromPosts(posts: Array<Post>): Array<Topic> {
   return flow(
-    posts => map(posts, getRelevantTopics),
+    (posts) => map(posts, getRelevantTopics),
     flatten,
-    allTopics => uniqBy(allTopics, getTopicLabel)
+    (allTopics) => uniqBy(allTopics, getTopicLabel)
   )(posts);
 }
 
@@ -45,4 +46,8 @@ export function getMaxCreatedAtAcrossPosts(posts: Array<Post>): number {
   return getNumericCreatedAtEpoch(
     maxBy(posts, getNumericCreatedAtEpoch) as NonNullable<Post>
   );
+}
+
+export function getAuthor(post: Post): User {
+  return post.author;
 }
