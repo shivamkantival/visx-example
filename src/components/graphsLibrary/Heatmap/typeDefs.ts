@@ -14,5 +14,4 @@ export interface HeatmapProps<DataType = any> {
   padding: number;
   data: Array<ColumnData<DataType>>;
   uniqueKey: string;
-  className?: string;
 }

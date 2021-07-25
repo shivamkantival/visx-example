@@ -9,5 +9,8 @@ export default makeStyles(({ spacing }) => {
       ...rightLeftMargin(marginOn1Side),
       marginBottom: spacing(8),
     },
+    authorCardContainer: {
+      width: spacing(100),
+    },
   };
 });

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useCallback } from "react";
 import { Post } from "typeDefs/posts";
 import { User } from "typeDefs/users";
 import { Card, CardActionArea, CardHeader } from "@material-ui/core";
@@ -15,24 +15,29 @@ import {
   getMaxCreatedAtAcrossPosts,
   getNumericCreatedAtEpoch,
 } from "utils/entityReaders/posts";
-import useStyle from "./styles";
+import useStyle from "modules/Authors/components/AuthorsList/components/AuthorDetails/styles";
 
-const AuthorDetails: FC<{ author: User; posts: Array<Post> }> = ({
-  author,
-  posts,
-}) => {
-  const { heatmapContainer } = useStyle();
+const AuthorDetails: FC<{
+  author: User;
+  posts: Array<Post>;
+  onSelectAuthor: (authorId: string) => void;
+}> = ({ author, posts, onSelectAuthor }) => {
+  const { heatmapContainer, authorCardContainer } = useStyle();
+  const onClick = useCallback(() => {
+    onSelectAuthor(getUserId(author));
+  }, [author, onSelectAuthor]);
+
   return (
-    <Card>
+    <Card className={authorCardContainer}>
       <CardHeader
         title={getUserName(author)}
         avatar={<AccountCircleIcon />}
         subheader={getUserEmail(author)}
       />
-      <CardActionArea>
+      <CardActionArea onClick={onClick}>
         <Heatmap
           data={createWeaklyHeatmapData<Post>(posts, {
-            numberOfDaysToPrepareDataFor: 30,
+            numberOfDaysToPrepareDataFor: 60,
             endDateEpoch: getMaxCreatedAtAcrossPosts(posts),
             dataGetter: getNumericCreatedAtEpoch,
           })}

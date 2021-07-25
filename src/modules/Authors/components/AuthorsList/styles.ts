@@ -3,12 +3,17 @@ import flexbox from "utils/styleMixins/flexBox";
 import { rightLeftMargin } from "utils/styleMixins/margin";
 
 export default makeStyles(({ spacing }) => ({
-  authorsListContainer: {
+  listContainer: {
     ...flexbox({ justifyContent: "space-around", flexWrap: "wrap" }),
     "& > *": {
-      // ...rightLeftMargin(spacing(4)),
       marginBottom: spacing(4),
-      flex: `30% 0 0`,
     },
+  },
+  allAuthorsWithDitributionContainer: {
+    ...flexbox({ flexDirection: "column", alignItems: "center" }),
+  },
+  topicDistributionInsightsContainer: {
+    width: spacing(100),
+    marginBottom: spacing(4),
   },
 }));
