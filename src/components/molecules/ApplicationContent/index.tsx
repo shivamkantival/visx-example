@@ -1,5 +1,5 @@
 import { FC, lazy, LazyExoticComponent, Suspense } from "react";
-import { Container, Paper } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 import useStyle from "components/molecules/ApplicationContent/style";
 import { BASE_APPLICATION_ROUTES } from "configs/routes";
 import { map } from "lodash";
@@ -23,7 +23,7 @@ const BASE_APPLICATION_RENDER_CONFIG: ReadonlyArray<{
   },
 ];
 
-const BaseApplicationRouter: FC<{}> = ({}) => {
+const BaseApplicationRouter: FC<{}> = () => {
   return (
     <Switch>
       {map(BASE_APPLICATION_RENDER_CONFIG, (config) => {

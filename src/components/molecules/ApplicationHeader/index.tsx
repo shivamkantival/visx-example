@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { AppBar, Toolbar, useTheme } from "@material-ui/core";
+import { AppBar, Toolbar } from "@material-ui/core";
 import { BASE_APPLICATION_ROUTES } from "configs/routes";
 import { Link } from "react-router-dom";
 import { map } from "lodash";

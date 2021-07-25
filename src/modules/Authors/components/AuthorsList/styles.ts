@@ -1,6 +1,5 @@
 import { makeStyles } from "@material-ui/core";
 import flexbox from "utils/styleMixins/flexBox";
-import { rightLeftMargin } from "utils/styleMixins/margin";
 
 export default makeStyles(({ spacing }) => ({
   listContainer: {

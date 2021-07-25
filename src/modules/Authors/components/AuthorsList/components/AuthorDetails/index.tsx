@@ -4,7 +4,6 @@ import { User } from "typeDefs/users";
 import { Card, CardActionArea, CardHeader } from "@material-ui/core";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import {
-  getUserAvatar,
   getUserEmail,
   getUserId,
   getUserName,

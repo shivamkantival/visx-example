@@ -26,7 +26,7 @@ const ErrorState: FC<{ code: ERROR_TYPES }> = ({ code }) => {
 
   return (
     <div className={classes.errorStateContainer}>
-      <img src={config.icon} className={classes.image} />
+      <img src={config.icon} className={classes.image} alt="user" />
       <span className={classes.label}>{config.label}</span>
     </div>
   );

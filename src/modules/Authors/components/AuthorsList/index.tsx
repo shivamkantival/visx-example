@@ -6,7 +6,6 @@ import { getUserId } from "utils/entityReaders/users";
 import useStyle from "./styles";
 import { getAuthorFromPosts } from "modules/Authors/components/AuthorsList/utils";
 import AuthorDetails from "./components/AuthorDetails";
-import PieChart from "components/graphsLibrary/PieChart";
 import TopicDistributionInsights from "modules/Authors/components/AuthorsList/components/TopicDistributionInsights";
 
 const AuthorsList: FC<{ posts: Array<Post> }> = ({ posts }) => {

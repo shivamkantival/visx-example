@@ -1,8 +1,6 @@
-import { FC, ReactElement, useCallback, useMemo } from "react";
+import { FC, ReactElement, useCallback } from "react";
 import { useFetchAllPosts } from "hooks/dataFetchers/posts";
-import PerDayPostsHeatmap from "modules/AllPostsInsights/components/PerDayPostsHeatmap";
-import { Divider, Paper, Typography } from "@material-ui/core";
-import PostsPerDayDistribution from "modules/AllPostsInsights/components/PostsPerDayDistribution";
+import { Paper, Typography } from "@material-ui/core";
 import ErrorState, { ERROR_TYPES } from "components/atoms/ErrorState";
 import SpinLoader from "components/atoms/SpinLoader";
 import useStyle from "./style";
