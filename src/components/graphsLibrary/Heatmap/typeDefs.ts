@@ -9,15 +9,10 @@ export interface ColumnData<DataType = any> {
 }
 
 export interface HeatmapProps<DataType = any> {
-  data: Array<ColumnData<DataType>>;
-  padding?: number;
-  uniqueKey: string;
-  className?: string;
-}
-
-export interface ParentContainedHeatmapProps<DataType = any>
-  extends HeatmapProps<DataType> {
   width: number;
   height: number;
   padding: number;
+  data: Array<ColumnData<DataType>>;
+  uniqueKey: string;
+  className?: string;
 }

@@ -11,12 +11,8 @@ export interface LineGraphSingularData {
 export interface LineGraphProps {
   data: Array<LineGraphSingularData>;
   domainToRangeGetter?: (domainValue: string) => string;
-  padding?: number;
   uniqueKey: string;
   className?: string;
-}
-
-export interface ParentContainedLineGraphProps extends LineGraphProps {
   width: number;
   height: number;
   padding: number;
