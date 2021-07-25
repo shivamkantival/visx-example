@@ -30,7 +30,7 @@ const BaseApplicationRouter: FC<{}> = ({}) => {
         const { component: Component, exact, route } = config;
 
         return (
-          <Route path={route} exact={exact}>
+          <Route path={route} exact={exact} key={route}>
             <Suspense fallback={<SpinLoader />}>
               <Component />
             </Suspense>

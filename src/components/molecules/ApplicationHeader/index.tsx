@@ -26,7 +26,7 @@ const ApplicationHeader: FC<{ className?: string }> = ({ className }) => {
     <AppBar position="static" className={className}>
       <Toolbar className={classes.navigationLinksContainer}>
         {map(APP_NAVIGATION_LINKS, (config) => (
-          <Link className={classes.link} to={config.route}>
+          <Link className={classes.link} to={config.route} key={config.route}>
             {config.label}
           </Link>
         ))}
